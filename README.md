@@ -42,8 +42,8 @@ Additionally, this version includes:
 The system is based on:
 
 * ESP32 (MicroPython)
-* SCD41 (NDIR CO₂ sensor) (Swiss technology)
-* SG90 servo (mechanical movement)
+* SCD41 (NDIR CO₂ sensor) (Swiss technology) ( I tried many VOC sensors, and they all were a compromise)
+* SG90 servo (mechanical movement) 180 degrees model.
 
 ### Measurement cycle
 
@@ -154,3 +154,127 @@ Open-source — feel free to build, modify, and improve.
 * Case: https://www.thingiverse.com/thing:7318502
 
 🐦 *A small object that quietly tells you when it's time to open a window.*
+
+
+EXTRA!!!
+
+## 🚀 Flashing MicroPython on ESP32 using Thonny (Beginner Guide)
+
+This guide explains how to install MicroPython on an ESP32 using Thonny — no command line required.
+
+---
+
+### 1️⃣ Install Thonny
+
+Download and install Thonny:
+
+👉 https://thonny.org/
+
+Thonny includes everything you need (Python + tools).
+
+---
+
+### 2️⃣ Connect your ESP32
+
+* Plug your ESP32 into your computer via USB
+* Make sure your cable supports **data** (not just charging)
+
+---
+
+### 3️⃣ Open the MicroPython installer in Thonny
+
+In Thonny:
+
+* Go to **Tools → Options → Interpreter**
+* Select:
+
+  * **MicroPython (ESP32)**
+
+Click **“Install or update MicroPython”**
+
+---
+
+### 4️⃣ Flash MicroPython
+
+In the installer window:
+
+* Select your ESP32 port (e.g. `COM3` or `/dev/ttyUSB0`)
+* Choose the latest firmware (or browse manually)
+
+👉 Firmware downloads:
+https://micropython.org/download/esp32/
+
+Click **Install**
+
+Wait until it finishes.
+
+---
+
+### 5️⃣ Connect to the ESP32
+
+After flashing:
+
+* Go again to **Tools → Options → Interpreter**
+* Select:
+
+  * **MicroPython (ESP32)**
+* Choose the correct port
+
+You should now see the MicroPython REPL in Thonny.
+
+---
+
+### 6️⃣ Upload your code
+
+* Open your `main.py` file
+* Click **File → Save As…**
+* Select **“MicroPython device”**
+* Save it as:
+
+```text
+main.py
+```
+
+---
+
+### ⚠️ Important: Auto-run behavior
+
+When a file named `main.py` is present on the ESP32:
+
+> It will automatically run every time the board powers on or resets.
+
+This means:
+
+* No need to press run
+* Your project starts instantly
+* It will also run after deep sleep
+
+---
+
+### 🛠️ Troubleshooting
+
+#### ❌ Device not detected
+
+* Try another USB cable
+* Install drivers (CP210 / CH340)
+
+#### ❌ Can't upload code (device keeps restarting)
+
+* Press **STOP** in Thonny quickly after connecting
+* Or hold the **BOOT** button while plugging in
+
+#### ❌ Wrong port
+
+* Check available ports in Thonny
+* Reconnect the device
+
+---
+
+### ✅ Done
+
+If everything worked:
+
+* MicroPython is installed
+* Your `main.py` runs automatically
+* Your ESP32 is ready to use 🐦
+
