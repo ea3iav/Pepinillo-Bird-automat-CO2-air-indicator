@@ -268,6 +268,28 @@ This means:
 * Check available ports in Thonny
 * Reconnect the device
 
+
+## 🐦 TRICK to understand the position of the bird. 
+Try this code on a different window of Thonny and make it run, the console will display angle while it is moving so you can determine the ideal angle to place your Bird.
+
+          from machine import Pin
+          from sg90 import SG90
+          import time
+          
+          servo = SG90(4)
+          
+          while True:
+              print("0 grados")
+              servo.set_angle(0)
+              time.sleep(2)
+          
+              print("90 grados")
+              servo.set_angle(90)
+              time.sleep(2)
+          
+              print("180 grados")
+              servo.set_angle(180)
+              time.sleep(2)
 ---
 
 ### ✅ Done
