@@ -78,6 +78,26 @@ To maximize battery life:
 * WiFi and Bluetooth disabled
 * Servo only moves when needed
 
+   🔋 Battery Voltage Monitoring (New Feature)
+   
+   This project now includes battery voltage monitoring using the ESP32’s ADC, allowing the system to:
+   
+   Detect when the LiPo battery is low
+   
+   Move the bird to a safe position (90°)
+   
+   YOU NEED TO CONECT THIS voltage divider. Otherwise use Main_no_batteryturn_off.py and change the name to main.py
+  Enter deep sleep to prevent battery damage
+            Two resistors are used:
+          
+          R1 = 100kΩ
+          
+          R2 = 100kΩ
+
+    Connection:
+       Battery + ---- R1 ----+---- R2 ---- GND
+                             |
+                         GPIO34 (ADC)
 ### Smart sampling
 
 * First hour → measurements every **30 seconds**
